@@ -10,6 +10,7 @@ class Ajax {
 		var
 			url 		= obj['url'], // string
 			uri 		= obj['data'], // obj
+			isAsync		= obj['async'], // boolean
 
 			timeout 	= obj['timeout'], // int
 			ontimeout 	= obj['ontimeout'], // callback
@@ -32,11 +33,12 @@ class Ajax {
 		}
 
 		if (uri == u) uri = null;
+		if (isAsync == u) isAsync = true;
 
 		const xhr = new XMLHttpRequest();
 		if (beforeSend !== u) beforeSend();
 
-		xhr.open('POST', url);
+		xhr.open('POST', url, isAsync);
 		xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 
 		if (credentials == true) {
@@ -88,6 +90,7 @@ class Ajax {
 		var
 			url 		= obj['url'], // string
 			uri 		= obj['data'], // obj
+			isAsync		= obj['async'], // boolean
 
 			timeout 	= obj['timeout'], // int
 			ontimeout 	= obj['ontimeout'], // callback
@@ -110,11 +113,12 @@ class Ajax {
 		}
 
 		if (uri == u) uri = null;
+		if (isAsync == u) isAsync = true;
 
 		const xhr = new XMLHttpRequest();
 		if (beforeSend !== u) beforeSend();
 
-		xhr.open('GET', url);
+		xhr.open('GET', url, isAsync);
 		xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 
 		if (credentials == true) {
